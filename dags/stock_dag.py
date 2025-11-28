@@ -1,8 +1,8 @@
 import airflow
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-import yfinance as yf
-print(yf.__version__)
+from airflow.operators.empty import EmptyOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 import sqlite3
 import pandas as pd
 import pendulum
@@ -56,7 +56,7 @@ def insert_data_sqlite(**context):
 with DAG(
     dag_id="yfinance_to_sqlite",
     start_date='2025-01-01',
-    schedule_interval="0 9 * * *",  # 매일 09시
+    schedule="0 9 * * *",  # 매일 09시
     catchup=False
 ) as dag:
 
