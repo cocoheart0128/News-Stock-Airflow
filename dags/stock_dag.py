@@ -1,7 +1,8 @@
+import airflow
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-
 import yfinance as yf
+print(yf.__version__)
 import sqlite3
 import pandas as pd
 import pendulum
