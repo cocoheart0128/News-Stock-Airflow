@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ticker_info",
+    "query": "select ticker from tickers_info where type='stock' and active=1;"
+  },
+  {
+    "id": "delete_stock",
+    "query": "DELETE FROM stock_prices WHERE Date BETWEEN  {{ start_date }}  AND {{ end_date }} ;"
+  },
+{
+  "id": "insert_stock",
+  "query": "INSERT INTO stock_prices (Date,Ticker,Open,High,Low,Close,Volume) VALUES %(values_str)s;"
+}
+
+]
+
+

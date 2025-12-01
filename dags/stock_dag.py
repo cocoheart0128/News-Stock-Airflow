@@ -1,83 +1,117 @@
 import airflow
 from airflow import DAG
-from airflow.operators.python import PythonOperator
-from airflow.operators.empty import EmptyOperator
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+from airflow.providers.standard.operators.python import PythonOperator
+from airflow.providers.standard.operators.empty import EmptyOperator
 import sqlite3
 import pandas as pd
 import pendulum
-from typing import List
 import sqlite3
+from datetime import datetime
+
+from utils.query_loader import QueryLoader
+import yfinance as yf
 
 
 tz = pendulum.timezone('Asia/Seoul')
-start_date = '{{execution_date + macros.timedelta(hours = 9,days=7).strftime("%Y-%m-%d")}}'
-end_date = '{{execution_date + macros.timedelta(hours = 9,days=1).strftime("%Y-%m-%d")}}'
+# start_date = '{{ds - macros.timedelta(hours = 9,days=7).strftime("%Y-%m-%d")}}'
+# end_date = '{{ds - macros.timedelta(hours = 9,days=1).strftime("%Y-%m-%d")}}'
+start_date = "{{ (macros.datetime.strptime(ds, '%Y-%m-%d') - macros.timedelta(days=7)).strftime('%Y-%m-%d') }}"
+end_date   = "{{ (macros.datetime.strptime(ds, '%Y-%m-%d') - macros.timedelta(days=1)).strftime('%Y-%m-%d') }}"
+
 
 DB_PATH = "/opt/airflow/db/project.db"   # docker 환경 기준
-
-
-def get_conn(path):
-    conn = sqlite3.connect(DB_PATH,timeout=30)
-    cursor = conn.cursor()
-    return conn,cursor
-
-def get_ticker(table_name):
-    conn,cursor = get_conn(DB_PATH)
-    cursor.execute(f"SELECT * FROM {table_name}")
-
-    rows = cursor.fetchall()
-    columns = [description[0] for description in cursor.description]
-    df = pd.DataFrame(rows, columns=columns)
-    conn.close()
-
-    return df['']
-
-
-
-
-def get_stock_data(**context):
-    ticker = "AAPL"  # 삼성전자 예시
-    df = yf.download(ticker, period="1d")  # 오늘 데이터
-    df.reset_index(inplace=True)
-    context['ti'].xcom_push(key='stock_data', value=df.to_json())
-    
-
-def insert_data_sqlite(**context):
-    stock_json = context['ti'].xcom_pull(key='stock_data')
-    df = pd.read_json(stock_json)
-    print(df)
-
-    conn = sqlite3.connect(DB_PATH)
-    df.to_sql("stock_price", conn, if_exists="append", index=False)
-    conn.close()
+ql = QueryLoader("ticker_info.json")
 
 
 with DAG(
-    dag_id="yfinance_to_sqlite",
-    start_date='2025-01-01',
+    dag_id="dag_yfinance_pipeline",
+    start_date=datetime(2025,12,1),
     schedule="0 9 * * *",  # 매일 09시
-    catchup=False
+    catchup=False,
+    template_searchpath=["/opt/airflow/include/sql"]
 ) as dag:
+    
+    start_dag = EmptyOperator(task_id="start_dag")
+    end_dag = EmptyOperator(task_id="end_dag")
 
-    start = PythonOperator(
-        task_id="start",
-        python_callable=lambda: print("Start DAG"),
+    ticker_info_task = SQLExecuteQueryOperator(
+    task_id="ticker_info_task",
+    conn_id="sqlite_conn",
+    sql = ql.getQueryString("ticker_info") ,
+    do_xcom_push=True
+)
+    
+    def yf_stock_fetch(start_date,end_date,**kwargs):
+        ti = kwargs['ti']
+        ticker_rows = ti.xcom_pull(task_ids="ticker_info_task")
+        tickers = [row[0] for row in ticker_rows]
+        print(ql.getQueryString("insert_stock"))
+
+        # execution_date = pd.to_datetime(execution_date_str)
+
+        # start_date = (execution_date - pd.Timedelta(days=7)).strftime("%Y-%m-%d")
+        # end_date = (execution_date - pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+        # print(execution_date)
+        print(start_date)
+        print(end_date)
+
+
+        df = yf.download(tickers, start=start_date, end=end_date).stack(level=1).reset_index()
+        df.rename(columns={'level_1':'Ticker'}, inplace=True)
+        print(df)
+
+        return df
+
+    
+    stock_fetch_task = PythonOperator(
+    task_id='stock_fetch_task',
+    python_callable=yf_stock_fetch,
+    op_kwargs={'start_date': start_date ,'end_date': end_date},
+    do_xcom_push=True
+)
+    
+    delete_stock_task = SQLExecuteQueryOperator(
+        task_id="delete_stock_task",
+        conn_id="sqlite_conn",
+        # sql=ql.getQueryString("delete_stock"),  # 위 JSON 쿼리
+        sql = "delete_stock.sql",
+        params={
+            "start_date": start_date,
+            "end_date": end_date
+        },
+        do_xcom_push=True
     )
 
-    collect_data = PythonOperator(
-        task_id="collect_data",
-        python_callable=get_stock_data,
+    
+    def prepare_stock_values(**kwargs):
+        ti = kwargs['ti']
+        df = ti.xcom_pull(task_ids='stock_fetch_task')
+
+        values_str = ", ".join([
+            f"('{row['Date'].strftime('%Y-%m-%d')}', '{row['Ticker']}', {row['Open']}, {row['High']}, {row['Low']}, {row['Close']}, {row['Volume']})"
+            for idx, row in df.iterrows()
+        ])
+
+        ti.xcom_push(key='values_str', value=values_str)
+
+
+    prepare_values_task = PythonOperator(
+        task_id='prepare_insert_values',
+        python_callable=prepare_stock_values
     )
 
-    insert_data = PythonOperator(
-        task_id="insert_to_sqlite",
-        python_callable=insert_data_sqlite,
+    # insert task
+    insert_stock_task = SQLExecuteQueryOperator(
+        task_id='insert_stock_task',
+        conn_id='sqlite_conn',
+        # sql='INSERT INTO stock_prices (Date,Ticker,Open,High,Low,Close,Volume) VALUES {{ ti.xcom_pull(task_ids="prepare_insert_values", key="values_str") }};',
+        sql = "insert_stock.sql",
+        params={
+            "values": "{{ ti.xcom_pull(task_ids='prepare_insert_values', key='values_str') }}"
+        }
     )
 
-    end = PythonOperator(
-        task_id="end",
-        python_callable=lambda: print("DAG end"),
-    )
 
-    start >> collect_data >> insert_data >> end
+    start_dag >> ticker_info_task >> stock_fetch_task >> delete_stock_task >> prepare_values_task >>insert_stock_task >> end_dag
+

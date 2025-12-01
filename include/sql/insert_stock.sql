@@ -1,0 +1,1 @@
+INSERT INTO stock_prices (Date,Ticker,Open,High,Low,Close,Volume) VALUES :values ;

@@ -89,6 +89,9 @@ x-airflow-common:
     - ../config:/opt/airflow/config
     - ../plugins:/opt/airflow/plugins
     - ../db:/opt/airflow/db
+    - ../query:/opt/airflow/query
+    - ../include:/opt/airflow/include
+
   
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:

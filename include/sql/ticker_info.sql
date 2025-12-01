@@ -1,0 +1,1 @@
+select ticker from tickers_info where type='stock' and active=1;

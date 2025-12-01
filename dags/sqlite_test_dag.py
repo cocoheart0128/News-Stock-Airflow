@@ -1,11 +1,10 @@
 import airflow
 from airflow import DAG
-from airflow.operators.python import PythonOperator
-from airflow.operators.empty import EmptyOperator
-# providers version 확인
 from airflow.providers.sqlite import __version__ as sqlite_provider_version
 from airflow.providers.common.sql import __version__ as sql_common_provider_version
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+from airflow.providers.standard.operators.python import PythonOperator
+from airflow.providers.standard.operators.empty import EmptyOperator
 
 from datetime import datetime
 # print("Airflow version:", airflow.__version__)

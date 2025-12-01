@@ -1,0 +1,6 @@
+{"timestamp":"2025-12-01T07:28:45.115561Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-01T07:28:45.115977Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/stock_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-01T07:28:45.606683Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ticker_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-01T07:28:45.621427Z","level":"info","event":"Executing: DELETE FROM stock_prices WHERE Date BETWEEN  '{start_date}' AND '{end_date}';","logger":"airflow.task.operators.airflow.providers.common.sql.operators.sql.SQLExecuteQueryOperator","filename":"sql.py","lineno":309}
+{"timestamp":"2025-12-01T07:28:45.630608Z","level":"info","event":"Running statement: DELETE FROM stock_prices WHERE Date BETWEEN  '{start_date}' AND '{end_date}';, parameters: None","logger":"airflow.task.hooks.airflow.providers.sqlite.hooks.sqlite.SqliteHook","filename":"sql.py","lineno":810}
+{"timestamp":"2025-12-01T07:28:45.631499Z","level":"info","event":"Rows affected: 0","logger":"airflow.task.hooks.airflow.providers.sqlite.hooks.sqlite.SqliteHook","filename":"sql.py","lineno":822}
