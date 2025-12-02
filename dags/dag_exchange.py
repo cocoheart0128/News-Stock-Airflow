@@ -47,7 +47,7 @@ with DAG(
     dag_id="dag_exchange_rate",
     start_date=datetime(2025,12,1),
     schedule=None,  # 매일 09시
-    catchup=False,
+    catchup=True,
     template_searchpath=["/opt/airflow/include/sql"]
 ) as dag:
     

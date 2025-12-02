@@ -1,5 +1,0 @@
-{"timestamp":"2025-12-02T04:46:11.309076Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-12-02T04:46:11.312884Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/yfinance_dag_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-12-02T04:46:11.981940Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ticker_info.json","logger":"task.stdout"}
-{"timestamp":"2025-12-02T04:46:11.996629Z","level":"info","event":"Triggering Dag Run.","trigger_dag_id":"dag_exchange_rate","logger":"task","filename":"task_runner.py","lineno":1060}
-{"timestamp":"2025-12-02T04:46:12.010750Z","level":"info","event":"Dag Run triggered successfully.","trigger_dag_id":"dag_exchange_rate","logger":"task","filename":"task_runner.py","lineno":1094}

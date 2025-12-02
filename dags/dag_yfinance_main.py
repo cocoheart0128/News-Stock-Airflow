@@ -24,13 +24,13 @@ DB_PATH = "/opt/airflow/db/project.db"   # docker 환경 기준
 
 with DAG(
     dag_id="dag_yfinance_pipeline",
-    start_date=datetime(2025,1,1),
+    start_date=datetime(2025,12,1),
     schedule="0 9 * * *",  # 매일 09시
     catchup=True,
     template_searchpath=["/opt/airflow/include/sql"],
-    default_args = {
-        'depends_on_past': True,
-    }
+    # default_args = {
+    #     'depends_on_past': True,
+    # }
 ) as dag:
     
     start_dag = EmptyOperator(task_id="start_dag")
