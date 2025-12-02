@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ticker_info",
+    "query": "select ticker from tickers_info where type='index' and active=1;"
+  },
+  {
+    "id": "delete_stock",
+    "query": "DELETE FROM index_values WHERE Date BETWEEN  ?  AND ? ;"
+  },
+{
+  "id": "insert_stock",
+  "query": "INSERT INTO index_values (Date,Ticker,Open,High,Low,Close,Volume,Dividends,Stock_Splits) VALUES "
+}
+
+]
+
+

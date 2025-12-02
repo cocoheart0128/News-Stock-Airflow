@@ -5,11 +5,11 @@
   },
   {
     "id": "delete_stock",
-    "query": "DELETE FROM stock_prices WHERE Date BETWEEN  {{ start_date }}  AND {{ end_date }} ;"
+    "query": "DELETE FROM stock_prices WHERE Date BETWEEN  ?  AND ? ;"
   },
 {
   "id": "insert_stock",
-  "query": "INSERT INTO stock_prices (Date,Ticker,Open,High,Low,Close,Volume) VALUES %(values_str)s;"
+  "query": "INSERT INTO stock_prices (Date,Ticker,Open,High,Low,Close,Volume) VALUES "
 }
 
 ]
