@@ -1,0 +1,6 @@
+{"timestamp":"2025-12-02T06:13:11.377592Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-02T06:13:11.378060Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-02T06:13:11.984824Z","level":"info","event":"Triggering Dag Run.","trigger_dag_id":"dag_stock","logger":"task","filename":"task_runner.py","lineno":1060}
+{"timestamp":"2025-12-02T06:13:12.002161Z","level":"info","event":"Dag Run triggered successfully.","trigger_dag_id":"dag_stock","logger":"task","filename":"task_runner.py","lineno":1094}
+{"timestamp":"2025-12-02T06:13:12.006768Z","level":"info","event":"Waiting for dag run to complete execution in allowed state.","dag_id":"dag_stock","run_id":"manual__2025-12-02T06:13:11.984742+00:00","allowed_state":["success"],"logger":"task","filename":"task_runner.py","lineno":1117}
+{"timestamp":"2025-12-02T06:14:12.032526Z","level":"info","event":"DagRun finished with allowed state.","dag_id":"dag_stock","state":"success","logger":"task","filename":"task_runner.py","lineno":1142}
