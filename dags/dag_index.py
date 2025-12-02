@@ -38,7 +38,10 @@ def yf_stock_fetch(start_date,end_date,**kwargs):
 
         # 모든 데이터프레임 합치기
     df = pd.concat(df_lst, ignore_index=True)
-    df['Date'] = df['Date'].dt.date.astype(str)
+    df['Date'] = df['Date'].astype(str).str[0:10]
+    # df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize(None)
+    # df['Date'] = df['Date'].dt.strftime('%Y%m%d')
+    print(df)
 
     return df[['Date', 'Ticker', 'Open', 'High', 'Low', 'Close', 'Volume', 'Dividends','Stock Splits']]
 
