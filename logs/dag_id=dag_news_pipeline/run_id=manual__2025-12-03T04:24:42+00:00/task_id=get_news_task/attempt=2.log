@@ -1,0 +1,21 @@
+{"timestamp":"2025-12-03T04:27:49.199810Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-03T04:27:49.200440Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T04:27:49.433486Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.306870Z","level":"info","event":"                                            title  ...  comp","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307156Z","level":"info","event":"0          '내 손안의 태블릿' 시대…<b>삼성</b>, 두 번 접는 폰 꺼냈다  ...  삼성전자","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307284Z","level":"info","event":"1         <b>삼성전자</b>, '아트 바젤 마이애미 비치' 전시작 24점 공개  ...  삼성전자","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307397Z","level":"info","event":"2     ‘이제는 두 번 접는다’…<b>삼성전자</b>, '갤럭시 Z 트라이폴드' 공개  ...  삼성전자","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307504Z","level":"info","event":"3            11번가, <b>삼성전자</b>·로보락 등과 ‘연말 감사제’ 실시  ...  삼성전자","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307603Z","level":"info","event":"4       <b>삼성전자</b>, GDDR7 D램으로 대통령상… “AI 추론서 강점”  ...  삼성전자","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307698Z","level":"info","event":"..                                            ...  ...   ...","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307789Z","level":"info","event":"191  &quot;중국車, 내년에 더 몰린다&quot;…국내 업계, '안방' 수성 비상  ...   샤오펑","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307893Z","level":"info","event":"192                 中 고급 전기차도 韓 공습…지커, 국내 딜러사와 계약  ...   샤오펑","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.307995Z","level":"info","event":"193          BYD 이어 지커 출사표…中전기차, 韓상륙작전 본격화 [여車저車]  ...   샤오펑","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.308087Z","level":"info","event":"194                   ‘싼데 잘 만든’ 중국 전기차, 한국 시장 덮친다  ...   샤오펑","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.308181Z","level":"info","event":"195          '프리미엄' 앞세운 중국차가 온다…BYD 이어 '지커' 한국 상륙  ...   샤오펑","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.308273Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.308365Z","level":"info","event":"[196 rows x 11 columns]","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.308492Z","level":"info","event":"Index(['title', 'originallink', 'link', 'description', 'pubDate', 'image',","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.308582Z","level":"info","event":"       'content', 'media', 'reporter_nm', 'reporter_email', 'comp'],","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.308668Z","level":"info","event":"      dtype='object')","logger":"task.stdout"}
+{"timestamp":"2025-12-03T04:28:28.347206Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}

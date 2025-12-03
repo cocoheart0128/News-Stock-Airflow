@@ -1,0 +1,15 @@
+[
+  {
+    "id": "comp_info_kor",
+    "query": "select description_kor from tickers_info where type='stock' and active=1 and description_kor is not null;"
+  },
+  {
+  "id": "insert_news",
+  "query": "INSERT INTO tb_naver_news (title,originallink,link,description,pubDate,image,content,media,reporter_nm,reporter_email,comp) VALUES "
+}
+
+
+
+]
+
+
