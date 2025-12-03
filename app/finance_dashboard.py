@@ -1,107 +1,132 @@
 import streamlit as st
 import pandas as pd
 import sqlite3
-import plotly.express as px
+import matplotlib.pyplot as plt
+import seaborn as sns
 from datetime import datetime
 
+# =======================
 # DB 연결
-DB_PATH = "project.db"  # SQLite 파일 경로
+# =======================
+DB_PATH = "project.db"
 conn = sqlite3.connect(DB_PATH)
 
-st.set_page_config(
-    page_title="Finance Dashboard",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+# =======================
+# 데이터 로딩
+# =======================
+@st.cache_data
+def load_data():
+    stock_df = pd.read_sql("SELECT * FROM stock_prices", conn, parse_dates=["Date"])
+    exchange_df = pd.read_sql("SELECT * FROM exchange_rates", conn, parse_dates=["Date"])
+    index_df = pd.read_sql("SELECT * FROM index_values", conn, parse_dates=["Date"])
+    news_df = pd.read_sql("SELECT * FROM tb_naver_news", conn, parse_dates=["pubDate"])
+    return stock_df, exchange_df, index_df, news_df
 
-st.title("📊 Finance Dashboard")
-st.markdown("주식, 환율, 지수, 뉴스 통계를 한눈에 확인")
+stock_df, exchange_df, index_df, news_df = load_data()
 
-# Sidebar - 선택
-st.sidebar.header("필터")
-start_date = st.sidebar.date_input("Start Date", value=datetime(2025, 1, 1))
-end_date = st.sidebar.date_input("End Date", value=datetime.now())
-companies = st.sidebar.multiselect(
-    "회사 선택", 
-    pd.read_sql("SELECT DISTINCT Ticker FROM stock_prices", conn)["Ticker"].tolist(),
-    default=None
-)
+# =======================
+# Streamlit 설정
+# =======================
+st.set_page_config(page_title="금융 대시보드", layout="wide")
+st.title("📊 금융 데이터 대시보드")
+st.markdown("주식, 뉴스, 환율, 지수를 카드형 레이아웃으로 확인할 수 있습니다.")
 
-# ================== 주식 시각화 ==================
-st.header("📈 주식 시계열 비교")
+# =======================
+# 선택 옵션
+# =======================
+tickers = stock_df["Ticker"].unique().tolist()
+selected_tickers = st.multiselect("회사 선택", tickers, default=tickers[:3])
 
-query = f"""
-SELECT Date, Ticker, Close, market_cap
-FROM stock_prices
-WHERE Date BETWEEN '{start_date}' AND '{end_date}'
-"""
+date_min = stock_df["Date"].min()
+date_max = stock_df["Date"].max()
+start_date, end_date = st.date_input("기간 선택", [date_min, date_max], min_value=date_min, max_value=date_max)
 
-if companies:
-    query += f" AND Ticker IN ({','.join([f'\"{c}\"' for c in companies])})"
+# =======================
+# 필터링
+# =======================
+filtered_stock = stock_df[
+    (stock_df["Ticker"].isin(selected_tickers)) &
+    (stock_df["Date"] >= pd.to_datetime(start_date)) &
+    (stock_df["Date"] <= pd.to_datetime(end_date))
+]
 
-df_stock = pd.read_sql(query, conn)
-df_stock["Date"] = pd.to_datetime(df_stock["Date"])
+filtered_news = news_df[news_df["comp"].isin(selected_tickers)]
+filtered_exchange = exchange_df.copy()
+filtered_index = index_df.copy()
 
-if not df_stock.empty:
-    fig_stock = px.line(
-        df_stock, x="Date", y="Close", color="Ticker",
-        markers=True, title="주식 종가 비교"
+# =======================
+# 주식 카드
+# =======================
+st.header("💹 주식 데이터")
+cols = st.columns(len(selected_tickers))
+for i, ticker in enumerate(selected_tickers):
+    last_close = filtered_stock[filtered_stock["Ticker"]==ticker]["Close"].iloc[-1]
+    fig, ax = plt.subplots(figsize=(4,2))
+    sns.lineplot(
+        data=filtered_stock[filtered_stock["Ticker"]==ticker], 
+        x="Date", y="Close", ax=ax, color="#1f77b4"
     )
-    st.plotly_chart(fig_stock, use_container_width=True)
+    ax.set_title(ticker)
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+    ax.grid(False)
+    st.pyplot(fig, use_container_width=True)
 
-    st.dataframe(df_stock.groupby("Ticker").agg(
-        latest_close=("Close", "last"),
-        market_cap=("market_cap", "last"),
-        mean_close=("Close", "mean")
-    ).reset_index())
-else:
-    st.warning("선택된 기간/회사의 데이터가 없습니다.")
+# =======================
+# 뉴스 카드
+# =======================
+st.header("📰 뉴스 데이터")
+news_count = filtered_news.groupby("comp").size().reset_index(name="count")
+cols = st.columns(len(selected_tickers))
+for i, ticker in enumerate(selected_tickers):
+    comp_count = news_count[news_count["comp"]==ticker]["count"].values
+    comp_count = int(comp_count[0]) if len(comp_count) > 0 else 0
+    with cols[i]:
+        st.metric(label=f"{ticker} 뉴스 건수", value=comp_count)
+        recent_news = filtered_news[filtered_news["comp"]==ticker].sort_values("pubDate", ascending=False).head(3)
+        for idx, row in recent_news.iterrows():
+            st.markdown(f"- [{row['title']}]({row['link']})")
 
-# ================== 뉴스 통계 ==================
-st.header("📰 뉴스 통계")
-query_news = f"""
-SELECT comp, COUNT(*) as news_count
-FROM tb_naver_news
-WHERE insert_dt BETWEEN '{start_date}' AND '{end_date}'
-GROUP BY comp
-"""
-df_news = pd.read_sql(query_news, conn)
+# =======================
+# 환율 카드
+# =======================
+st.header("💱 환율 데이터")
+currencies = exchange_df["Currency"].unique()
+selected_currency = st.multiselect("통화 선택", currencies, default=currencies[:3])
+filtered_exchange = exchange_df[exchange_df["Currency"].isin(selected_currency)]
 
-if not df_news.empty:
-    fig_news = px.bar(
-        df_news, x="comp", y="news_count",
-        title="회사별 뉴스 기사 수", text="news_count"
+cols = st.columns(len(selected_currency))
+for i, curr in enumerate(selected_currency):
+    last_rate = filtered_exchange[filtered_exchange["Currency"]==curr]["Rate"].iloc[-1]
+    fig, ax = plt.subplots(figsize=(4,2))
+    sns.lineplot(
+        data=filtered_exchange[filtered_exchange["Currency"]==curr],
+        x="Date", y="Rate", ax=ax, color="#ff7f0e"
     )
-    st.plotly_chart(fig_news, use_container_width=True)
-    st.dataframe(df_news)
-else:
-    st.warning("뉴스 데이터가 없습니다.")
+    ax.set_title(curr)
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+    ax.grid(False)
+    st.pyplot(fig, use_container_width=True)
 
-# ================== 환율 / 지수 ==================
-st.header("💱 환율 & 지수")
+# =======================
+# 지수 카드
+# =======================
+st.header("📈 지수 데이터")
+indices = index_df["IndexName"].unique()
+selected_index = st.multiselect("지수 선택", indices, default=indices[:3])
+filtered_index = index_df[index_df["IndexName"].isin(selected_index)]
 
-# 환율
-df_exchange = pd.read_sql(f"""
-SELECT Date, currency, rate
-FROM exchange_rates
-WHERE Date BETWEEN '{start_date}' AND '{end_date}'
-""", conn)
-df_exchange["Date"] = pd.to_datetime(df_exchange["Date"])
-
-if not df_exchange.empty:
-    fig_ex = px.line(df_exchange, x="Date", y="rate", color="currency", title="환율 추이")
-    st.plotly_chart(fig_ex, use_container_width=True)
-
-# 지수
-df_index = pd.read_sql(f"""
-SELECT Date, index_name, close
-FROM index_values
-WHERE Date BETWEEN '{start_date}' AND '{end_date}'
-""", conn)
-df_index["Date"] = pd.to_datetime(df_index["Date"])
-
-if not df_index.empty:
-    fig_idx = px.line(df_index, x="Date", y="close", color="index_name", title="지수 추이")
-    st.plotly_chart(fig_idx, use_container_width=True)
-
-conn.close()
+cols = st.columns(len(selected_index))
+for i, idx_name in enumerate(selected_index):
+    last_value = filtered_index[filtered_index["IndexName"]==idx_name]["Value"].iloc[-1]
+    fig, ax = plt.subplots(figsize=(4,2))
+    sns.lineplot(
+        data=filtered_index[filtered_index["IndexName"]==idx_name],
+        x="Date", y="Value", ax=ax, color="#2ca02c"
+    )
+    ax.set_title(idx_name)
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+    ax.grid(False)
+    st.pyplot(fig, use_container_width=True)
