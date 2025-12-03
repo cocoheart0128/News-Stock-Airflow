@@ -4,13 +4,11 @@ import sqlite3
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
-from datetime import datetime
 
 # =======================
 # DB 연결
 # =======================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# database/news.db 경로
 DB_PATH = os.path.join(BASE_DIR, "db", "project.db")
 conn = sqlite3.connect(DB_PATH)
 
@@ -32,7 +30,7 @@ stock_df, exchange_df, index_df, news_df = load_data()
 # =======================
 st.set_page_config(page_title="금융 대시보드", layout="wide")
 st.title("📊 금융 데이터 대시보드")
-st.markdown("주식, 뉴스, 환율, 지수를 카드형 레이아웃으로 확인할 수 있습니다.")
+st.markdown("주식, 뉴스, 환율, 지수를 한눈에 비교할 수 있는 대시보드입니다.")
 
 # =======================
 # 선택 옵션
@@ -40,12 +38,18 @@ st.markdown("주식, 뉴스, 환율, 지수를 카드형 레이아웃으로 확�
 tickers = stock_df["Ticker"].unique().tolist()
 selected_tickers = st.multiselect("회사 선택", tickers, default=tickers[:3])
 
-date_min = stock_df["Date"].min()
-date_max = stock_df["Date"].max()
+currencies = exchange_df["Currency"].unique().tolist()
+selected_currency = st.multiselect("통화 선택", currencies, default=currencies[:3])
+
+indices = index_df["IndexName"].unique().tolist()
+selected_index = st.multiselect("지수 선택", indices, default=indices[:3])
+
+date_min = min(stock_df["Date"].min(), exchange_df["Date"].min(), index_df["Date"].min())
+date_max = max(stock_df["Date"].max(), exchange_df["Date"].max(), index_df["Date"].max())
 start_date, end_date = st.date_input("기간 선택", [date_min, date_max], min_value=date_min, max_value=date_max)
 
 # =======================
-# 필터링
+# 데이터 필터링
 # =======================
 filtered_stock = stock_df[
     (stock_df["Ticker"].isin(selected_tickers)) &
@@ -54,82 +58,68 @@ filtered_stock = stock_df[
 ]
 
 filtered_news = news_df[news_df["comp"].isin(selected_tickers)]
-filtered_exchange = exchange_df.copy()
-filtered_index = index_df.copy()
+filtered_exchange = exchange_df[
+    (exchange_df["Currency"].isin(selected_currency)) &
+    (exchange_df["Date"] >= pd.to_datetime(start_date)) &
+    (exchange_df["Date"] <= pd.to_datetime(end_date))
+]
+
+filtered_index = index_df[
+    (index_df["IndexName"].isin(selected_index)) &
+    (index_df["Date"] >= pd.to_datetime(start_date)) &
+    (index_df["Date"] <= pd.to_datetime(end_date))
+]
 
 # =======================
-# 주식 카드
+# 주식 비교 그래프
 # =======================
-st.header("💹 주식 데이터")
-cols = st.columns(len(selected_tickers))
-for i, ticker in enumerate(selected_tickers):
-    last_close = filtered_stock[filtered_stock["Ticker"]==ticker]["Close"].iloc[-1]
-    fig, ax = plt.subplots(figsize=(4,2))
-    sns.lineplot(
-        data=filtered_stock[filtered_stock["Ticker"]==ticker], 
-        x="Date", y="Close", ax=ax, color="#1f77b4"
-    )
-    ax.set_title(ticker)
-    ax.set_xlabel("")
-    ax.set_ylabel("")
-    ax.grid(False)
-    st.pyplot(fig, use_container_width=True)
+st.header("💹 주식 비교")
+fig, ax = plt.subplots(figsize=(12,4))
+for ticker in selected_tickers:
+    df = filtered_stock[filtered_stock["Ticker"]==ticker]
+    sns.lineplot(data=df, x="Date", y="Close", ax=ax, label=ticker)
+ax.set_xlabel("날짜")
+ax.set_ylabel("종가")
+ax.grid(True, linestyle="--", alpha=0.5)
+ax.legend(title="회사")
+st.pyplot(fig, use_container_width=True)
 
 # =======================
-# 뉴스 카드
+# 뉴스 건수 비교
 # =======================
-st.header("📰 뉴스 데이터")
+st.header("📰 뉴스 건수 비교")
 news_count = filtered_news.groupby("comp").size().reset_index(name="count")
-cols = st.columns(len(selected_tickers))
-for i, ticker in enumerate(selected_tickers):
-    comp_count = news_count[news_count["comp"]==ticker]["count"].values
-    comp_count = int(comp_count[0]) if len(comp_count) > 0 else 0
-    with cols[i]:
-        st.metric(label=f"{ticker} 뉴스 건수", value=comp_count)
-        recent_news = filtered_news[filtered_news["comp"]==ticker].sort_values("pubDate", ascending=False).head(3)
-        for idx, row in recent_news.iterrows():
-            st.markdown(f"- [{row['title']}]({row['link']})")
+fig, ax = plt.subplots(figsize=(8,3))
+sns.barplot(data=news_count, x="comp", y="count", palette="pastel", ax=ax)
+ax.set_xlabel("회사")
+ax.set_ylabel("뉴스 건수")
+ax.grid(axis="y", linestyle="--", alpha=0.5)
+st.pyplot(fig, use_container_width=True)
 
 # =======================
-# 환율 카드
+# 환율 비교 그래프
 # =======================
-st.header("💱 환율 데이터")
-currencies = exchange_df["Currency"].unique()
-selected_currency = st.multiselect("통화 선택", currencies, default=currencies[:3])
-filtered_exchange = exchange_df[exchange_df["Currency"].isin(selected_currency)]
-
-cols = st.columns(len(selected_currency))
-for i, curr in enumerate(selected_currency):
-    last_rate = filtered_exchange[filtered_exchange["Currency"]==curr]["Rate"].iloc[-1]
-    fig, ax = plt.subplots(figsize=(4,2))
-    sns.lineplot(
-        data=filtered_exchange[filtered_exchange["Currency"]==curr],
-        x="Date", y="Rate", ax=ax, color="#ff7f0e"
-    )
-    ax.set_title(curr)
-    ax.set_xlabel("")
-    ax.set_ylabel("")
-    ax.grid(False)
-    st.pyplot(fig, use_container_width=True)
+st.header("💱 환율 비교")
+fig, ax = plt.subplots(figsize=(12,4))
+for curr in selected_currency:
+    df = filtered_exchange[filtered_exchange["Currency"]==curr]
+    sns.lineplot(data=df, x="Date", y="Rate", ax=ax, label=curr)
+ax.set_xlabel("날짜")
+ax.set_ylabel("환율")
+ax.grid(True, linestyle="--", alpha=0.5)
+ax.legend(title="통화")
+st.pyplot(fig, use_container_width=True)
 
 # =======================
-# 지수 카드
+# 지수 비교 그래프
 # =======================
-st.header("📈 지수 데이터")
-indices = index_df["IndexName"].unique()
-selected_index = st.multiselect("지수 선택", indices, default=indices[:3])
-filtered_index = index_df[index_df["IndexName"].isin(selected_index)]
-
-cols = st.columns(len(selected_index))
-for i, idx_name in enumerate(selected_index):
-    last_value = filtered_index[filtered_index["IndexName"]==idx_name]["Value"].iloc[-1]
-    fig, ax = plt.subplots(figsize=(4,2))
-    sns.lineplot(
-        data=filtered_index[filtered_index["IndexName"]==idx_name],
-        x="Date", y="Value", ax=ax, color="#2ca02c"
-    )
-    ax.set_title(idx_name)
-    ax.set_xlabel("")
-    ax.set_ylabel("")
-    ax.grid(False)
-    st.pyplot(fig, use_container_width=True)
+st.header("📈 지수 비교")
+fig, ax = plt.subplots(figsize=(12,4))
+for idx_name in selected_index:
+    df = filtered_index[filtered_index["IndexName"]==idx_name]
+    sns.lineplot(data=df, x="Date", y="Value", ax=ax, label=idx_name)
+ax.set_xlabel("날짜")
+ax.set_ylabel("지수 값")
+ax.grid(True, linestyle="--", alpha=0.5)
+ax.legend(title="지수")
+st.pyplot(fig, use_container_width=True)
