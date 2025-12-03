@@ -1,5 +1,4 @@
 # DAG: dag_news_main
-
 ## 개요
 - **목적**: 지정된 기업 리스트를 기반으로 Naver 뉴스 데이터를 수집하고 SQLite DB에 저장.  
 - **주요 기능**:
@@ -71,5 +70,6 @@ def get_news_data_by_keyword(naver_id, naver_key, **kwargs):
 
     ti.xcom_push(key='values_str', value=values_str)
 ```
+
 
 
