@@ -1,5 +1,3 @@
-<img width="1512" height="982" alt="스크린샷 2025-12-03 오후 1 38 46" src="https://github.com/user-attachments/assets/d6b3146b-305b-4b31-8534-b1938bd25805" />
-
 # DAG: dag_news_main
 
 ## 개요
@@ -10,6 +8,9 @@
   3. 뉴스 데이터 파싱 및 DB 삽입 (`insert_news_task`)  
 - **스케줄**: 매일 09:00 한 번 실행 (`schedule="0 9 * * *"`)  
 - **DB**: SQLite (`sqlite_conn`)  
+
+---
+<img width="1512" height="982" alt="스크린샷 2025-12-03 오후 1 38 46" src="https://github.com/user-attachments/assets/d6b3146b-305b-4b31-8534-b1938bd25805" />
 
 ---
 
@@ -69,3 +70,4 @@ def get_news_data_by_keyword(naver_id, naver_key, **kwargs):
     ])
 
     ti.xcom_push(key='values_str', value=values_str)
+
