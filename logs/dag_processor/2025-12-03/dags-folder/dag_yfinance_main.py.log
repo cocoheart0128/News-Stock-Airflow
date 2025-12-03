@@ -399,3 +399,10 @@
 {"timestamp":"2025-12-03T05:45:47.326022Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T05:46:18.669394Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T05:46:49.976579Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T05:47:21.332168Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T05:47:52.789428Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T05:48:24.118710Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T05:48:55.400045Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T05:49:26.871590Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T05:49:58.294677Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T05:50:29.614803Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
