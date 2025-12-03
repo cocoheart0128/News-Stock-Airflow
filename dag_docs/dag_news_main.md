@@ -35,7 +35,7 @@ comp_info_task = SQLExecuteQueryOperator(
     sql=ql.getQueryString("comp_info_kor"),
     do_xcom_push=True
 )
-
+```
 ---
 ### 3️⃣ 뉴스 데이터 수집
 - **Task ID**: `get_news_task`  
@@ -70,5 +70,6 @@ def get_news_data_by_keyword(naver_id, naver_key, **kwargs):
     ])
 
     ti.xcom_push(key='values_str', value=values_str)
+```
 
 
