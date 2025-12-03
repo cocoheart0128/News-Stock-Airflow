@@ -439,3 +439,4 @@
 {"timestamp":"2025-12-03T06:05:39.803688Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/sqlite_test_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T06:06:10.558954Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/sqlite_test_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T06:06:41.339366Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/sqlite_test_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:07:12.139815Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/sqlite_test_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
