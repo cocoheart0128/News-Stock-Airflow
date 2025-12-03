@@ -41,7 +41,7 @@ def yf_stock_fetch(start_date,end_date,**kwargs):
 
 
 with DAG(
-    dag_id="dag_stock",
+    dag_id="dag_stock_backfill",
     start_date=datetime(2020,1,1),
     schedule=timedelta(days=365),  # 매일 09시
     catchup=True,
