@@ -38,11 +38,11 @@ st.markdown("주식, 뉴스, 환율, 지수를 한눈에 비교할 수 있는 �
 tickers = stock_df["Ticker"].unique().tolist()
 selected_tickers = st.multiselect("회사 선택", tickers, default=tickers[:3])
 
-currencies = exchange_df["Currency"].unique().tolist()
-selected_currency = st.multiselect("통화 선택", currencies, default=currencies[:3])
+# currencies = exchange_df["Currency"].unique().tolist()
+# selected_currency = st.multiselect("통화 선택", currencies, default=currencies[:3])
 
-indices = index_df["IndexName"].unique().tolist()
-selected_index = st.multiselect("지수 선택", indices, default=indices[:3])
+# indices = index_df["IndexName"].unique().tolist()
+# selected_index = st.multiselect("지수 선택", indices, default=indices[:3])
 
 date_min = min(stock_df["Date"].min(), exchange_df["Date"].min(), index_df["Date"].min())
 date_max = max(stock_df["Date"].max(), exchange_df["Date"].max(), index_df["Date"].max())

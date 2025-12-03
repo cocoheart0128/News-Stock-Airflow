@@ -426,3 +426,4 @@
 {"timestamp":"2025-12-03T05:59:54.733864Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T06:00:26.204499Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T06:00:57.617245Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:01:28.957766Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
