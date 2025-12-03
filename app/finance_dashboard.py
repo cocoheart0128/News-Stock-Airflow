@@ -116,7 +116,7 @@ st.header("💱 환율 비교")
 fig, ax = plt.subplots(figsize=(12,4))
 for curr in selected_currency:
     df = filtered_exchange[filtered_exchange["Ticker"]==curr]
-    sns.lineplot(data=df, x="Date", y="Rate", ax=ax, label=curr)
+    sns.lineplot(data=df, x="Date", y="Close", ax=ax, label=curr)
 ax.set_xlabel("날짜")
 ax.set_ylabel("환율")
 ax.grid(True, linestyle="--", alpha=0.5)
@@ -130,7 +130,7 @@ st.header("📈 지수 비교")
 fig, ax = plt.subplots(figsize=(12,4))
 for idx_name in selected_index:
     df = filtered_index[filtered_index["Ticker"]==idx_name]
-    sns.lineplot(data=df, x="Date", y="Value", ax=ax, label=idx_name)
+    sns.lineplot(data=df, x="Date", y="Close", ax=ax, label=idx_name)
 ax.set_xlabel("날짜")
 ax.set_ylabel("지수 값")
 ax.grid(True, linestyle="--", alpha=0.5)
