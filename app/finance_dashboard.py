@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import sqlite3
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
@@ -8,7 +9,9 @@ from datetime import datetime
 # =======================
 # DB 연결
 # =======================
-DB_PATH = "project.db"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# database/news.db 경로
+DB_PATH = os.path.join(BASE_DIR, "db", "project.db")
 conn = sqlite3.connect(DB_PATH)
 
 # =======================
