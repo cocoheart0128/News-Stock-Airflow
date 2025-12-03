@@ -432,3 +432,8 @@
 {"timestamp":"2025-12-03T06:03:02.669962Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T06:03:33.925819Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T06:04:05.351109Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:04:36.618749Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:05:07.991558Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:05:39.288191Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:06:10.080579Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:06:40.823233Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
