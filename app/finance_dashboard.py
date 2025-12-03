@@ -57,18 +57,18 @@ filtered_stock = stock_df[
     (stock_df["Date"] <= pd.to_datetime(end_date))
 ]
 
-filtered_news = news_df[news_df["comp"].isin(selected_tickers)]
-filtered_exchange = exchange_df[
-    (exchange_df["Currency"].isin(selected_currency)) &
-    (exchange_df["Date"] >= pd.to_datetime(start_date)) &
-    (exchange_df["Date"] <= pd.to_datetime(end_date))
-]
+# filtered_news = news_df[news_df["comp"].isin(selected_tickers)]
+# filtered_exchange = exchange_df[
+#     (exchange_df["Currency"].isin(selected_currency)) &
+#     (exchange_df["Date"] >= pd.to_datetime(start_date)) &
+#     (exchange_df["Date"] <= pd.to_datetime(end_date))
+# ]
 
-filtered_index = index_df[
-    (index_df["IndexName"].isin(selected_index)) &
-    (index_df["Date"] >= pd.to_datetime(start_date)) &
-    (index_df["Date"] <= pd.to_datetime(end_date))
-]
+# filtered_index = index_df[
+#     (index_df["IndexName"].isin(selected_index)) &
+#     (index_df["Date"] >= pd.to_datetime(start_date)) &
+#     (index_df["Date"] <= pd.to_datetime(end_date))
+# ]
 
 # =======================
 # 주식 비교 그래프
@@ -84,42 +84,42 @@ ax.grid(True, linestyle="--", alpha=0.5)
 ax.legend(title="회사")
 st.pyplot(fig, use_container_width=True)
 
-# =======================
-# 뉴스 건수 비교
-# =======================
-st.header("📰 뉴스 건수 비교")
-news_count = filtered_news.groupby("comp").size().reset_index(name="count")
-fig, ax = plt.subplots(figsize=(8,3))
-sns.barplot(data=news_count, x="comp", y="count", palette="pastel", ax=ax)
-ax.set_xlabel("회사")
-ax.set_ylabel("뉴스 건수")
-ax.grid(axis="y", linestyle="--", alpha=0.5)
-st.pyplot(fig, use_container_width=True)
+# # =======================
+# # 뉴스 건수 비교
+# # =======================
+# st.header("📰 뉴스 건수 비교")
+# news_count = filtered_news.groupby("comp").size().reset_index(name="count")
+# fig, ax = plt.subplots(figsize=(8,3))
+# sns.barplot(data=news_count, x="comp", y="count", palette="pastel", ax=ax)
+# ax.set_xlabel("회사")
+# ax.set_ylabel("뉴스 건수")
+# ax.grid(axis="y", linestyle="--", alpha=0.5)
+# st.pyplot(fig, use_container_width=True)
 
-# =======================
-# 환율 비교 그래프
-# =======================
-st.header("💱 환율 비교")
-fig, ax = plt.subplots(figsize=(12,4))
-for curr in selected_currency:
-    df = filtered_exchange[filtered_exchange["Currency"]==curr]
-    sns.lineplot(data=df, x="Date", y="Rate", ax=ax, label=curr)
-ax.set_xlabel("날짜")
-ax.set_ylabel("환율")
-ax.grid(True, linestyle="--", alpha=0.5)
-ax.legend(title="통화")
-st.pyplot(fig, use_container_width=True)
+# # =======================
+# # 환율 비교 그래프
+# # =======================
+# st.header("💱 환율 비교")
+# fig, ax = plt.subplots(figsize=(12,4))
+# for curr in selected_currency:
+#     df = filtered_exchange[filtered_exchange["Currency"]==curr]
+#     sns.lineplot(data=df, x="Date", y="Rate", ax=ax, label=curr)
+# ax.set_xlabel("날짜")
+# ax.set_ylabel("환율")
+# ax.grid(True, linestyle="--", alpha=0.5)
+# ax.legend(title="통화")
+# st.pyplot(fig, use_container_width=True)
 
-# =======================
-# 지수 비교 그래프
-# =======================
-st.header("📈 지수 비교")
-fig, ax = plt.subplots(figsize=(12,4))
-for idx_name in selected_index:
-    df = filtered_index[filtered_index["IndexName"]==idx_name]
-    sns.lineplot(data=df, x="Date", y="Value", ax=ax, label=idx_name)
-ax.set_xlabel("날짜")
-ax.set_ylabel("지수 값")
-ax.grid(True, linestyle="--", alpha=0.5)
-ax.legend(title="지수")
-st.pyplot(fig, use_container_width=True)
+# # =======================
+# # 지수 비교 그래프
+# # =======================
+# st.header("📈 지수 비교")
+# fig, ax = plt.subplots(figsize=(12,4))
+# for idx_name in selected_index:
+#     df = filtered_index[filtered_index["IndexName"]==idx_name]
+#     sns.lineplot(data=df, x="Date", y="Value", ax=ax, label=idx_name)
+# ax.set_xlabel("날짜")
+# ax.set_ylabel("지수 값")
+# ax.grid(True, linestyle="--", alpha=0.5)
+# ax.legend(title="지수")
+# st.pyplot(fig, use_container_width=True)
