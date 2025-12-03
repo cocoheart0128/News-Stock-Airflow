@@ -947,3 +947,99 @@
 {"timestamp":"2025-12-03T06:47:39.465711Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
 {"timestamp":"2025-12-03T06:48:10.068806Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-12-03T06:48:10.322503Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:48:40.861560Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:48:41.127632Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:49:11.845402Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:49:12.101605Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:49:42.388778Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:49:42.807396Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:50:12.916782Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:50:13.176719Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:50:43.262845Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:50:44.045593Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:51:14.206195Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:51:14.452736Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:51:44.488624Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:51:44.927655Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:52:15.016550Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:52:15.416433Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:52:45.691174Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:52:46.106602Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:53:16.293789Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:53:16.685062Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:53:46.822220Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:53:47.265628Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:54:17.445752Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:54:17.869338Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:54:48.662953Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:54:49.122062Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:55:20.292507Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:55:20.733761Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:55:51.471673Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:55:52.060632Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:56:22.832127Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:56:23.321123Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:56:53.874647Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:56:54.351755Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:57:24.422668Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:57:25.162253Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:57:55.950514Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:57:56.419582Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:58:27.045956Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:58:27.536354Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:58:58.271481Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:58:58.748958Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T06:59:29.446606Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T06:59:29.911293Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:00:00.647211Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:00:01.136252Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:00:31.678507Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:00:32.149791Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:01:03.004987Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:01:03.521361Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:01:33.560616Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:01:33.961854Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:02:04.950609Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:02:05.398361Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:02:35.925349Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:02:36.402193Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:03:07.025226Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:03:07.493869Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:03:38.061915Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:03:38.506485Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:04:09.155356Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:04:09.601405Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:04:40.203286Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:04:40.711709Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:22:04.884184Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:22:05.394073Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:22:35.917246Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:22:36.409792Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:36:12.951691Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:36:13.639183Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:36:44.213776Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:36:44.704497Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:37:15.221294Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:37:15.700801Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:37:46.259428Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:37:46.768609Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:38:17.298734Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:38:17.781719Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:38:48.202479Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:38:48.702088Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:39:19.113000Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:39:19.606749Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:39:50.154383Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:39:50.658425Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:40:21.153157Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:40:21.634720Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:40:52.131487Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:40:52.603788Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:41:23.077799Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:41:23.579233Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:41:54.003118Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:41:54.535706Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:42:24.950752Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:42:25.439301Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-03T07:42:55.896507Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-03T07:42:56.409921Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
