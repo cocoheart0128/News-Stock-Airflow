@@ -4,6 +4,18 @@ import sqlite3
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.font_manager as fm
+
+
+# =======================
+# font 깨짐 방지
+# =======================
+# # 설치한 나눔폰트 사용
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+fontpath = os.path.join(BASE_DIR, "fonts", "NanumGothic-Bold.ttf")
+fontprop = fm.FontProperties(fname=fontpath)
+plt.rcParams['font.family'] = fontprop.get_name()
+plt.rcParams['axes.unicode_minus'] = False  # 마이너스 깨짐 방지
 
 # =======================
 # DB 연결
