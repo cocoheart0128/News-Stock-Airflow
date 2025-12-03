@@ -1,5 +1,7 @@
 # NEWS-STOCK-AIRFLOW
 
+## Dockr 기반한 CI/CD 가능한 뉴스, 주식,지수,환율 데이터 수집 파이프라인
+
 ## Dag 설명 
 
 네이버 API 뉴스 수집
