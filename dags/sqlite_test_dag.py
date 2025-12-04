@@ -15,6 +15,7 @@ with DAG(
     dag_id="sqlite_test_dag",
     start_date=datetime(2024, 1, 1),
     schedule=None,
+    tags=["example"],
     catchup=False,
 ) as dag:
 

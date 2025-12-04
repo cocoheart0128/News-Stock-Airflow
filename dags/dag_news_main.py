@@ -123,6 +123,7 @@ with DAG(
     start_date=datetime(2025,12,1),
     schedule="@hourly",  ##매시간 실행
     catchup=False,
+    tags = ['NEWS','ETL'],
     template_searchpath=["/opt/airflow/include/sql"],
 ) as dag:
     

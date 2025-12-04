@@ -28,6 +28,7 @@ with DAG(
     schedule="0 9 * * *",  # 매일 09시
     catchup=True,
     template_searchpath=["/opt/airflow/include/sql"],
+    tags = ['Finance','ETL'],
     # default_args = {
     #     'depends_on_past': True,
     # }

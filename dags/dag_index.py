@@ -51,6 +51,7 @@ with DAG(
     start_date=datetime(2025,12,1),
     schedule=None,  # 매일 09시
     catchup=True,
+    tags = ['Finance','ETL','Index'],
     template_searchpath=["/opt/airflow/include/sql"]
 ) as dag:
     
