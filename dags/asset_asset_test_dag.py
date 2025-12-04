@@ -3,7 +3,7 @@ from airflow.sdk import asset
 
 @asset(schedule="@daily")
 def extracted_data():
-    return {"a": 1, "b": 2,"c":5}
+    return {"a": 1, "b": 2}
 
 
 @asset(schedule=extracted_data)
@@ -15,6 +15,7 @@ def transformed_data(context):
         key="return_value",
         include_prior_dates=True,
     )
+    print(data)
     return {k: v * 2 for k, v in data.items()}
 
 
