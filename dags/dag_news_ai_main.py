@@ -49,4 +49,20 @@ with DAG(
     sql = ql.getQueryString("unprocess_news_seq") ,
     do_xcom_push=True
 )
-start_dag >> seq_info_task >> end_dag
+    
+
+    def ai_news_process(**kwargs):
+        ti = kwargs['ti']
+        data = ti.xcom_pull(task_ids='seq_info_task')
+        df = pd.DataFrame(data)
+        print(len(df))
+
+    ai_news_process_task = PythonOperator(
+        task_id='ai_news_process_task',
+        python_callable=ai_news_process
+    )
+    
+        
+
+
+start_dag >> seq_info_task >> ai_news_process_task >> end_dag
