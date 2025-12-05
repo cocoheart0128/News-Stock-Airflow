@@ -1,0 +1,26 @@
+{"timestamp":"2025-12-05T05:03:01.467381Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-05T05:03:01.467723Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_ai_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-05T05:03:01.533265Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ai_news_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:03.601347Z","level":"info","event":"[EMEBD BATCH NUM] : 1","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.650219Z","level":"info","event":"[LanceDB] 기존 테이블 업데이트 → tb_naver_news_ai_emb","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.650594Z","level":"info","event":"count before : 15","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.673745Z","level":"info","event":"count after : 15","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.691951Z","level":"info","event":"    seq  ...                                          embedding","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.692199Z","level":"info","event":"0     1  ...  [-0.004914377, -0.00027334027, 0.0011696247, -...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.692367Z","level":"info","event":"1     2  ...  [0.014686924, -0.0039264527, 0.01670214, -0.05...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.692482Z","level":"info","event":"2     3  ...  [0.010584096, 0.0004776019, 0.015754111, -0.07...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.692596Z","level":"info","event":"3     4  ...  [0.010013877, 0.013388826, -0.007385993, -0.06...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.692734Z","level":"info","event":"4     5  ...  [0.014312988, -0.0074628624, 0.013016321, -0.0...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.692931Z","level":"info","event":"5     6  ...  [0.009342603, -0.0010633996, 0.0029973942, -0....","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693077Z","level":"info","event":"6     7  ...  [-0.0058270395, 0.0013074264, 0.0009536657, -0...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693191Z","level":"info","event":"7     8  ...  [0.021437714, 0.010375288, -0.0040295767, -0.0...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693287Z","level":"info","event":"8     9  ...  [-0.006901454, -0.0068172934, -0.0058929897, -...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693372Z","level":"info","event":"9    10  ...  [0.0065025478, 0.036785476, 0.022350622, -0.07...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693456Z","level":"info","event":"10   11  ...  [-0.0026518148, 0.0043923617, 0.004481289, -0....","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693534Z","level":"info","event":"11   12  ...  [-0.011348627, 0.019860227, 0.007813924, -0.05...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693616Z","level":"info","event":"12   13  ...  [-0.0049135545, 0.015580988, -0.00047031592, -...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693694Z","level":"info","event":"13   14  ...  [0.008628307, 0.014403083, 0.010571667, -0.073...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693771Z","level":"info","event":"14   15  ...  [-0.009891912, 0.015767206, 0.001438745, -0.04...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693849Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.693928Z","level":"info","event":"[15 rows x 6 columns]","logger":"task.stdout"}
+{"timestamp":"2025-12-05T05:03:05.696420Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}

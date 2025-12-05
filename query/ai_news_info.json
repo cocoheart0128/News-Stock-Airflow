@@ -4,8 +4,18 @@
     "query": "select seq,title,content,pubDate,media from tb_naver_news where seq not in (select seq from tb_naver_news_ai_analysis);"
   },
   {
+    "id": "unprocess_news_seq_bk",
+    "query": "select seq,title,content,pubDate,media from tb_naver_news where pubDate like '? %'"
+  },
+
+
+  {
   "id": "insert_ai_result",
   "query": "INSERT INTO tb_naver_news_ai_analysis (seq, title, content, pubDate, media,analysis_type, related_keyword,summary_content, keyword_summary_content,general_sentiment, general_score, general_content,industry_sentiment, industry_score, industry_content,keyword_criteria, source_length, score_result,fit_score, fit_comment, expt_dt,summary_similarity, curtn_ty, cluster, cluster_labels) VALUES "
+},
+{
+  "id": "insert_similarity_result",
+  "query": "INSERT INTO tb_naver_news_similarity (base_seq, cmp_seq, similarity_score, media) VALUES "
 }
 
 

@@ -1,0 +1,95 @@
+{"timestamp":"2025-12-05T06:51:57.071460Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-05T06:51:57.071757Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_ai_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-05T06:51:57.134742Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ai_news_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.430794Z","level":"info","event":"   base_seq cmp_seq    similarity_score   media","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431029Z","level":"info","event":"0         1       9  0.7509705424308777    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431151Z","level":"info","event":"1         1       3  0.7656499147415161    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431249Z","level":"info","event":"2         1       6  0.7671882510185242    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431347Z","level":"info","event":"3         1       4    0.79286789894104    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431430Z","level":"info","event":"4         1       8  0.8082243204116821    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431516Z","level":"info","event":"5         1       5  0.8115202784538269    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431677Z","level":"info","event":"6         1      10  0.8119922280311584    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.431933Z","level":"info","event":"7         1       7   0.844599723815918    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432043Z","level":"info","event":"8         1       2  0.8943331837654114    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432127Z","level":"info","event":"9         2       6  0.7640564441680908  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432208Z","level":"info","event":"10        2       5  0.7724784016609192  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432288Z","level":"info","event":"11        2       8  0.7816036343574524  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432369Z","level":"info","event":"12        2       4  0.8297576308250427  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432503Z","level":"info","event":"13        2       3  0.8430588245391846  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432612Z","level":"info","event":"14        2      10  0.8547176122665405  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432748Z","level":"info","event":"15        2       9  0.8872367739677429  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432875Z","level":"info","event":"16        2       1  0.8943331837654114  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.432966Z","level":"info","event":"17        2       7  0.9037902355194092  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433049Z","level":"info","event":"18        3       9  0.7613052129745483  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433150Z","level":"info","event":"19        3       1  0.7656499147415161  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433264Z","level":"info","event":"20        3       8  0.7659616470336914  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433361Z","level":"info","event":"21        3       5  0.7681707143783569  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433450Z","level":"info","event":"22        3       6  0.7881283760070801  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433551Z","level":"info","event":"23        3      10  0.7916339635848999  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433663Z","level":"info","event":"24        3       7  0.8148403763771057  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433758Z","level":"info","event":"25        3       2  0.8430588245391846  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433839Z","level":"info","event":"26        3       4  0.8720740079879761  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.433922Z","level":"info","event":"27        4       1    0.79286789894104    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434004Z","level":"info","event":"28        4       2  0.8297576308250427    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434085Z","level":"info","event":"29        4       5  0.8484871983528137    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434164Z","level":"info","event":"30        4       7  0.8674909472465515    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434243Z","level":"info","event":"31        4       3  0.8720740079879761    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434325Z","level":"info","event":"32        4       6  0.8832286596298218    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434419Z","level":"info","event":"33        4      10  0.8836917877197266    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434513Z","level":"info","event":"34        4       9  0.8919737339019775    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434604Z","level":"info","event":"35        4       8  0.9020540714263916    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434689Z","level":"info","event":"36        5       3  0.7681707143783569    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.434848Z","level":"info","event":"37        5      10  0.7690446376800537    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435029Z","level":"info","event":"38        5       2  0.7724784016609192    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435127Z","level":"info","event":"39        5       6  0.7970142960548401    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435207Z","level":"info","event":"40        5       1  0.8115202784538269    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435297Z","level":"info","event":"41        5       8  0.8218593597412109    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435388Z","level":"info","event":"42        5       9  0.8248424530029297    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435469Z","level":"info","event":"43        5       7  0.8337942361831665    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435552Z","level":"info","event":"44        5       4  0.8484871983528137    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435703Z","level":"info","event":"['1', '9', '0.7509705424308777', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435863Z","level":"info","event":"['1', '3', '0.7656499147415161', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.435986Z","level":"info","event":"['1', '6', '0.7671882510185242', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436086Z","level":"info","event":"['1', '4', '0.79286789894104', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436167Z","level":"info","event":"['1', '8', '0.8082243204116821', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436248Z","level":"info","event":"['1', '5', '0.8115202784538269', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436325Z","level":"info","event":"['1', '10', '0.8119922280311584', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436437Z","level":"info","event":"['1', '7', '0.844599723815918', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436515Z","level":"info","event":"['1', '2', '0.8943331837654114', '연합뉴스']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436633Z","level":"info","event":"['2', '6', '0.7640564441680908', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436751Z","level":"info","event":"['2', '5', '0.7724784016609192', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436858Z","level":"info","event":"['2', '8', '0.7816036343574524', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.436945Z","level":"info","event":"['2', '4', '0.8297576308250427', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437027Z","level":"info","event":"['2', '3', '0.8430588245391846', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437107Z","level":"info","event":"['2', '10', '0.8547176122665405', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437200Z","level":"info","event":"['2', '9', '0.8872367739677429', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437289Z","level":"info","event":"['2', '1', '0.8943331837654114', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437370Z","level":"info","event":"['2', '7', '0.9037902355194092', '지디넷코리아']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437448Z","level":"info","event":"['3', '9', '0.7613052129745483', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437527Z","level":"info","event":"['3', '1', '0.7656499147415161', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437606Z","level":"info","event":"['3', '8', '0.7659616470336914', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437686Z","level":"info","event":"['3', '5', '0.7681707143783569', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437766Z","level":"info","event":"['3', '6', '0.7881283760070801', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437843Z","level":"info","event":"['3', '10', '0.7916339635848999', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.437926Z","level":"info","event":"['3', '7', '0.8148403763771057', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438012Z","level":"info","event":"['3', '2', '0.8430588245391846', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438092Z","level":"info","event":"['3', '4', '0.8720740079879761', 'SBSBiz']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438172Z","level":"info","event":"['4', '1', '0.79286789894104', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438332Z","level":"info","event":"['4', '2', '0.8297576308250427', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438430Z","level":"info","event":"['4', '5', '0.8484871983528137', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438506Z","level":"info","event":"['4', '7', '0.8674909472465515', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438580Z","level":"info","event":"['4', '3', '0.8720740079879761', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438650Z","level":"info","event":"['4', '6', '0.8832286596298218', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438719Z","level":"info","event":"['4', '10', '0.8836917877197266', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438789Z","level":"info","event":"['4', '9', '0.8919737339019775', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438858Z","level":"info","event":"['4', '8', '0.9020540714263916', '이데일리']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.438969Z","level":"info","event":"['5', '3', '0.7681707143783569', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439037Z","level":"info","event":"['5', '10', '0.7690446376800537', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439105Z","level":"info","event":"['5', '2', '0.7724784016609192', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439175Z","level":"info","event":"['5', '6', '0.7970142960548401', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439243Z","level":"info","event":"['5', '1', '0.8115202784538269', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439311Z","level":"info","event":"['5', '8', '0.8218593597412109', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439377Z","level":"info","event":"['5', '9', '0.8248424530029297', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439444Z","level":"info","event":"['5', '7', '0.8337942361831665', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.439511Z","level":"info","event":"['5', '4', '0.8484871983528137', '한국경제']","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:51:59.450131Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}

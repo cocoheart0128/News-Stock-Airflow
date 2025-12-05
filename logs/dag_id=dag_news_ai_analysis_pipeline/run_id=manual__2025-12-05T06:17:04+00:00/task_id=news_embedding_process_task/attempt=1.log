@@ -1,0 +1,21 @@
+{"timestamp":"2025-12-05T06:17:13.851698Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-05T06:17:13.852099Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_ai_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-05T06:17:13.923481Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ai_news_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.598526Z","level":"info","event":"   seq  ...   media","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.598859Z","level":"info","event":"0    1  ...    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599031Z","level":"info","event":"1    2  ...  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599169Z","level":"info","event":"2    3  ...  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599295Z","level":"info","event":"3    4  ...    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599410Z","level":"info","event":"4    5  ...    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599504Z","level":"info","event":"5    6  ...    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599605Z","level":"info","event":"6    7  ...     뉴시스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599693Z","level":"info","event":"7    8  ...  이코노미스트","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599778Z","level":"info","event":"8    9  ...  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599861Z","level":"info","event":"9   10  ...    조선비즈","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.599943Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.600022Z","level":"info","event":"[10 rows x 5 columns]","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:15.641064Z","level":"info","event":"[EMEBD BATCH NUM] : 1","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:17.408059Z","level":"info","event":"[LanceDB] 기존 테이블 업데이트 → tb_naver_news_ai_emb","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:17.408642Z","level":"info","event":"count before : 10","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:17.439630Z","level":"info","event":"count after : 10","logger":"task.stdout"}
+{"timestamp":"2025-12-05T06:17:17.442255Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}
