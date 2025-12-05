@@ -63,7 +63,8 @@ with DAG(
         df.columns = ['seq','title','content','pubDate','media']
 
         service = AiProcess(api_key=gemini_api_key,vector_db_path=VectorDB_NAME)
-        embeddings = service.safe_gemini_batch_embedding(df)
+        # embeddings = service.safe_gemini_batch_embedding(df) --- gemini 제한
+        embeddings = service.safe_local_batch_embedding(df)
         tbl = service.lancedb_create_or_update(VectorDB_TB_NAME,embeddings,"seq")
         # print(tbl.to_pandas())
 

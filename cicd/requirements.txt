@@ -9,3 +9,5 @@ apache-airflow-providers-common-sql
 streamlit
 plotly
 lancedb
+sentence-transformers
+konlpy

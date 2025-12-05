@@ -4,6 +4,8 @@ import json
 import pandas as pd
 import numpy as np
 from datetime import datetime
+from sentence_transformers import SentenceTransformer
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 class AiProcess:
     def __init__(self, api_key, vector_db_path):
@@ -165,3 +167,46 @@ class AiProcess:
             values_str_list.append(tuple_str)
 
         return ", ".join(values_str_list)
+    
+
+
+    # -----------------------------
+    # 2) Local (ko-sentence-transformers) Batch Embedding
+    # -----------------------------
+    def safe_local_batch_embedding(self, df):
+        MAX_BATCH_SIZE = 50
+        # 모델 로드 (한번만 로드)
+        embedding_model = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+        print(f"[EMBEDDING MODEL] all-MiniLM-L6-v2")
+        print(f"[INPUT SIZE] df={len(df)} rows")
+
+        results = []
+
+        for i in range(0, len(df), MAX_BATCH_SIZE):
+            batch = df.iloc[i:i + MAX_BATCH_SIZE]
+
+            # 텍스트 리스트 만들기
+            texts = [
+                f"{row['title']}\n{row['content']}"
+                for _, row in batch.iterrows()
+            ]
+
+            # 🔥 HuggingFace 임베딩
+            embeddings = embedding_model.embed_documents(texts)
+
+            # 결과 append
+            for emb, (_, row) in zip(embeddings, batch.iterrows()):
+                results.append({
+                    "seq": row["seq"],
+                    "title": row["title"],
+                    "content": row["content"],
+                    "pubDate": row["pubDate"],
+                    "media": row["media"],
+                    "embedding": emb,
+                    "insert_dt": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                })
+
+        print(f"[EMBED RESULT] rows={len(results)}")
+        return results
