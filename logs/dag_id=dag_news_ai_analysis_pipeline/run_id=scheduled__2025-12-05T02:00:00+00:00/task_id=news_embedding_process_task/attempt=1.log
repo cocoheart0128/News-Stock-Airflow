@@ -1,0 +1,18 @@
+{"timestamp":"2025-12-05T02:00:06.894364Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-05T02:00:06.894894Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_ai_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-05T02:00:08.043951Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ai_news_info.json","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.414866Z","level":"info","event":"         0  ...       4","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415097Z","level":"info","event":"0        1  ...    연합뉴스","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415204Z","level":"info","event":"1        2  ...  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415320Z","level":"info","event":"2        3  ...  SBSBiz","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415400Z","level":"info","event":"3        4  ...    이데일리","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415497Z","level":"info","event":"4        5  ...    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415635Z","level":"info","event":"...    ...  ...     ...","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415762Z","level":"info","event":"9056  9057  ...    한국경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415859Z","level":"info","event":"9057  9058  ...  지디넷코리아","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.415950Z","level":"info","event":"9058  9059  ...     더팩트","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.416023Z","level":"info","event":"9059  9060  ...    서울경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.416115Z","level":"info","event":"9060  9061  ...   헤럴드경제","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.416187Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.416258Z","level":"info","event":"[9061 rows x 5 columns]","logger":"task.stdout"}
+{"timestamp":"2025-12-05T02:00:09.416153Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}
