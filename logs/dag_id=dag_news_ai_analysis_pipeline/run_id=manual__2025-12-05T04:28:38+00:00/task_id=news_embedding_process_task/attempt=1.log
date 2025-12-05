@@ -1,8 +1,0 @@
-{"timestamp":"2025-12-05T04:28:45.404998Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-12-05T04:28:45.405540Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_ai_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-12-05T04:28:46.644667Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ai_news_info.json","logger":"task.stdout"}
-{"timestamp":"2025-12-05T04:28:50.130839Z","level":"info","event":"신규 테이블 업데이트되었습니다.","logger":"task.stdout"}
-{"timestamp":"2025-12-05T04:28:50.131186Z","level":"info","event":"table name : /opt/airflow/db/vector.tb_naver_news_ai_emb","logger":"task.stdout"}
-{"timestamp":"2025-12-05T04:28:50.131649Z","level":"info","event":"table cnt before: 5","logger":"task.stdout"}
-{"timestamp":"2025-12-05T04:28:50.148472Z","level":"info","event":"table cnt after: 10","logger":"task.stdout"}
-{"timestamp":"2025-12-05T04:28:50.153043Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}

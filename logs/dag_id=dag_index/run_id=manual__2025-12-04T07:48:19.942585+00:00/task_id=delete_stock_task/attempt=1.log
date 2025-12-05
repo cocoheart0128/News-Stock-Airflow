@@ -1,6 +1,0 @@
-{"timestamp":"2025-12-04T07:48:32.287600Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-12-04T07:48:32.288137Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_index.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-12-04T07:48:32.853511Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/index_info.json","logger":"task.stdout"}
-{"timestamp":"2025-12-04T07:48:32.869639Z","level":"info","event":"Executing: DELETE FROM index_values WHERE Date BETWEEN  ?  AND ? ;","logger":"airflow.task.operators.airflow.providers.common.sql.operators.sql.SQLExecuteQueryOperator","filename":"sql.py","lineno":309}
-{"timestamp":"2025-12-04T07:48:32.877274Z","level":"info","event":"Running statement: DELETE FROM index_values WHERE Date BETWEEN  ?  AND ? ;, parameters: ('2025-11-27', '2025-12-03')","logger":"airflow.task.hooks.airflow.providers.sqlite.hooks.sqlite.SqliteHook","filename":"sql.py","lineno":810}
-{"timestamp":"2025-12-04T07:48:32.878141Z","level":"info","event":"Rows affected: 0","logger":"airflow.task.hooks.airflow.providers.sqlite.hooks.sqlite.SqliteHook","filename":"sql.py","lineno":822}

@@ -1,5 +1,0 @@
-{"timestamp":"2025-12-05T00:02:09.971014Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-12-05T00:02:09.974562Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_ai_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-12-05T00:02:10.344049Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ai_news_info.json","logger":"task.stdout"}
-{"timestamp":"2025-12-05T00:02:12.049189Z","level":"info","event":"8657","logger":"task.stdout"}
-{"timestamp":"2025-12-05T00:02:12.050691Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}

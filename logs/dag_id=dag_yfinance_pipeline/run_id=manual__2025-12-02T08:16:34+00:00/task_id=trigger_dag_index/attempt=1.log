@@ -1,8 +1,0 @@
-{"timestamp":"2025-12-02T08:16:38.681728Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-12-02T08:16:38.682222Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_yfinance_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-12-02T08:16:40.972058Z","level":"info","event":"Triggering Dag Run.","trigger_dag_id":"dag_index","logger":"task","filename":"task_runner.py","lineno":1060}
-{"timestamp":"2025-12-02T08:16:40.983430Z","level":"info","event":"Dag Run triggered successfully.","trigger_dag_id":"dag_index","logger":"task","filename":"task_runner.py","lineno":1094}
-{"timestamp":"2025-12-02T08:16:40.989214Z","level":"info","event":"Waiting for dag run to complete execution in allowed state.","dag_id":"dag_index","run_id":"manual__2025-12-02T08:16:40.971972+00:00","allowed_state":["success"],"logger":"task","filename":"task_runner.py","lineno":1117}
-{"timestamp":"2025-12-02T08:17:41.002751Z","level":"info","event":"Waiting for dag run to complete execution in allowed state.","dag_id":"dag_index","run_id":"manual__2025-12-02T08:16:40.971972+00:00","allowed_state":["success"],"logger":"task","filename":"task_runner.py","lineno":1117}
-{"timestamp":"2025-12-02T08:17:46.141431Z","level":"error","event":"Server indicated the task shouldn't be running anymore. Terminating process","detail":{"detail":{"reason":"not_running","message":"TI is no longer in the running state and task should terminate","current_state":"failed"}},"logger":"task"}
-{"timestamp":"2025-12-02T08:17:51.159791Z","level":"error","event":"Task killed!","logger":"task"}

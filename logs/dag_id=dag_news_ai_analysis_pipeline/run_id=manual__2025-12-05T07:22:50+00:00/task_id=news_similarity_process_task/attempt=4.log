@@ -1,8 +1,0 @@
-{"timestamp":"2025-12-05T07:25:13.973840Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-12-05T07:25:13.974165Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_ai_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-12-05T07:25:14.048529Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/ai_news_info.json","logger":"task.stdout"}
-{"timestamp":"2025-12-05T07:25:14.061938Z","level":"info","event":"'2025-12-05%'","logger":"task.stdout"}
-{"timestamp":"2025-12-05T07:25:16.424618Z","level":"info","event":"Empty DataFrame","logger":"task.stdout"}
-{"timestamp":"2025-12-05T07:25:16.424813Z","level":"info","event":"Columns: []","logger":"task.stdout"}
-{"timestamp":"2025-12-05T07:25:16.424923Z","level":"info","event":"Index: []","logger":"task.stdout"}
-{"timestamp":"2025-12-05T07:25:16.440856Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}

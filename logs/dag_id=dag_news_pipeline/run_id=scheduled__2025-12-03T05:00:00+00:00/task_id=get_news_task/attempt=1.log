@@ -1,8 +1,0 @@
-{"timestamp":"2025-12-03T05:00:02.534891Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-12-03T05:00:02.535410Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag_news_main.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-12-03T05:00:02.729285Z","level":"info","event":"[QueryLoader] Loading JSON from: /opt/airflow/query/company_info.json","logger":"task.stdout"}
-{"timestamp":"2025-12-03T05:00:37.618972Z","level":"info","event":"News Count : 195","logger":"task.stdout"}
-{"timestamp":"2025-12-03T05:00:37.619378Z","level":"info","event":"Index(['title', 'originallink', 'link', 'description', 'pubDate', 'image',","logger":"task.stdout"}
-{"timestamp":"2025-12-03T05:00:37.619580Z","level":"info","event":"       'content', 'media', 'reporter_nm', 'reporter_email', 'comp'],","logger":"task.stdout"}
-{"timestamp":"2025-12-03T05:00:37.619748Z","level":"info","event":"      dtype='object')","logger":"task.stdout"}
-{"timestamp":"2025-12-03T05:00:37.660457Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}
