@@ -165,6 +165,4 @@ with DAG(
 )
 
 
-start_dag >> news_similarity_filter_task >> news_ai_summary_process_task >> news_ai_summary_insert_task >>  end_dag
-# start_dag >> seq_info_task >> news_embedding_process_task >> end_dag
-# start_dag >> seq_info_task >> news_similarity_process_task >> news_similarity_save_task >> end_dag
+start_dag >> seq_info_task >> fork_embed_dag >> news_embedding_process_task >> news_similarity_process_task >> news_similarity_save_task >> news_similarity_filter_task >> fork_analysis_dag >> news_ai_summary_process_task >> news_ai_summary_insert_task >>  end_dag
