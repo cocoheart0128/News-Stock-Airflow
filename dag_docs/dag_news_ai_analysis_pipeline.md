@@ -1,6 +1,6 @@
-뉴스 AI 분석 파이프라인 (Airflow DAG)
-개요
+### 뉴스 AI 분석 파이프라인 (Airflow DAG)
 
+## 개요
 dag_news_ai_analysis_pipeline은 뉴스 데이터를 수집 → 임베딩 → 유사도 분석 → AI 요약 및 감성 분석 → DB 저장까지 자동화하는 AI 기반 뉴스 분석 파이프라인입니다.
 Airflow DAG를 활용해 일일 단위 배치 처리가 가능하며, Gemini API와 로컬 VectorDB(LanceDB)를 활용합니다.
 
