@@ -6,6 +6,9 @@
 
 네이버 API 뉴스 수집
 
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/76fd4ae9-cbdd-422e-aefa-2062d897aa0e" />
+
+
 https://github.com/cocoheart0128/News-Stock-Airflow/blob/main/dag_docs/dag_news_main.md
 
 야호 주식,지수,환율 데이터 수집
