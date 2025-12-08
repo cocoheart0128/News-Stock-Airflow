@@ -27,6 +27,7 @@ from utils.ai_process import AiProcess
 tz = pendulum.timezone('Asia/Seoul')
 # start_date = "{{ (macros.datetime.strptime(ds, '%Y-%m-%d') - macros.timedelta(days=7)).strftime('%Y-%m-%d') }}"
 # end_date   = "{{ (macros.datetime.strptime(ds, '%Y-%m-%d') - macros.timedelta(days=1)).strftime('%Y-%m-%d') }}"
+etl_date ="{{ (macros.datetime.strptime(ds, '%Y-%m-%d')).strftime('%Y-%m-%d') }}"
 
 gemini_api_key = Variable.get("gemini_api_key")
 DB_PATH = "/opt/airflow/db/project.db"   # docker 환경 기준
@@ -34,9 +35,11 @@ VectorDB_NAME ='/opt/airflow/db/vector'
 VectorDB_TB_NAME = 'tb_naver_news_ai_emb'
 ql = QueryLoader("ai_news_info.json")
 
+service = AiProcess(api_key=gemini_api_key,vector_db_path=VectorDB_NAME)
+
 with DAG(
     dag_id="dag_news_ai_analysis_pipeline",
-    start_date=datetime(2025,12,3),
+    start_date=datetime(2025,12,8),
     schedule="@daily",
     catchup=False,
     tags = ['NEWS','AI'],
@@ -59,7 +62,7 @@ with DAG(
         ti = kwargs['ti']
         data = ti.xcom_pull(task_ids='seq_info_task')
         df = pd.DataFrame(data)
-        df = df.iloc[0:50]
+        ## df = df.iloc[1:1005] --일부만 emeb
         df.columns = ['seq','title','content','pubDate','media']
 
         service = AiProcess(api_key=gemini_api_key,vector_db_path=VectorDB_NAME)
@@ -76,13 +79,13 @@ with DAG(
 
     def news_similarity_process(**kwargs):
         ti = kwargs['ti']
-        search_dt = f"'{kwargs['ds']}%'"
+        search_dt = kwargs['ds']
         print(search_dt)
 
         # ▼ 1) 새로 임베딩한 뉴스들(seq 리스트)
         # 'seq_info_task'에서 XCom으로 전달된, 이번에 처리된 뉴스 목록
         data = ti.xcom_pull(task_ids='seq_info_task')
-        df_new = pd.DataFrame(data).head(5)
+        df_new = pd.DataFrame(data)
         df_new.columns = ['seq','title','content','pubDate','media']
         
         # AiProcess 서비스 재사용
@@ -90,7 +93,7 @@ with DAG(
 
         # ▼ 2) 벡터DB 로드 및 유사도 검색 수행
         similarity_results = service.news_similarity_process(df_new, VectorDB_TB_NAME,search_dt)
-        print(similarity_results)
+        # print(similarity_results)
         similarity_results_str = service.df_to_sql_values_string(similarity_results)
         # ▼ 3) 결과를 XCom에 저장하거나, DB에 저장 (여기서는 XCom에 저장하여 다음 분석 Task로 전달)
         # 주의: 유사도 결과가 많을 경우 XCom에 부하를 줄 수 있으므로, 적절한 후속 DB 저장 태스크가 필요함
@@ -108,5 +111,60 @@ with DAG(
     sql = ql.getQueryString("insert_similarity_result") +' '+ '{{ ti.xcom_pull(task_ids="news_similarity_process_task", key="values_str") }}' ,
     do_xcom_push=True
 )
+    
+    news_similarity_filter_task = SQLExecuteQueryOperator(
+    task_id="news_similarity_filter_task",
+    conn_id="sqlite_conn",
+    sql = ql.getQueryString("filter_news_seq")+' "'+'{{ds}}'+'%"',
+    do_xcom_push=True
+)
+    
 
-start_dag >> seq_info_task >> news_embedding_process_task >> news_similarity_process_task >> news_similarity_save_task >> end_dag
+    def news_ai_summary_process(**kwargs):
+        ti = kwargs['ti']
+        data = ti.xcom_pull(task_ids='news_similarity_filter_task')
+        df = pd.DataFrame(data).head(1)
+        df.columns = ['seq','title','pubDate','content','media']
+
+        for i in range(len(df)):
+            news_title = df.loc[i,'title']
+            news_content = df.loc[i,'content']
+
+            res = service.gemini_ai_summary(news_title,news_content)
+
+            df.loc[i,'related_keyword'] = res.related_keyword
+            df.loc[i,'summary_content'] = res.summary_content
+            df.loc[i,'keyword_summary_content'] = res.keyword_summary_content
+            df.loc[i,'general_sentiment'] = res.general_sentiment
+            df.loc[i,'general_score'] = res.general_score
+            df.loc[i,'general_content'] = res.general_content
+            df.loc[i,'industry_sentiment'] = res.industry_sentiment
+            df.loc[i,'industry_score'] = res.industry_score
+            df.loc[i,'industry_content'] = res.industry_content
+            df.loc[i,'industry_sentiment'] = res.industry_sentiment
+            df.loc[i,'keyword_criteria'] = res.keyword_criteria
+            df.loc[i,'fit_score'] = res.fit_score
+            df.loc[i,'fit_comment'] = res.fit_comment
+        print(df.columns)
+        ai_result_str = service.df_to_sql_values_string(df)
+        # print(df.columns)
+        ti.xcom_push(key='values_str', value=ai_result_str)
+
+    news_ai_summary_process_task = PythonOperator(
+        task_id='news_ai_summary_process_task',
+        python_callable=news_ai_summary_process,
+        do_xcom_push=True
+    )
+
+
+    news_ai_summary_insert_task = SQLExecuteQueryOperator(
+    task_id="news_ai_summary_insert_task",
+    conn_id="sqlite_conn",
+    sql = ql.getQueryString("insert_ai_news_result") +' '+ '{{ ti.xcom_pull(task_ids="news_ai_summary_process_task", key="values_str") }}' ,
+    do_xcom_push=True
+)
+
+
+start_dag >> news_similarity_filter_task >> news_ai_summary_process_task >> news_ai_summary_insert_task >>  end_dag
+# start_dag >> seq_info_task >> news_embedding_process_task >> end_dag
+# start_dag >> seq_info_task >> news_similarity_process_task >> news_similarity_save_task >> end_dag

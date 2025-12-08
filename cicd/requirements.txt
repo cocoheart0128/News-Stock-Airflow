@@ -11,3 +11,4 @@ plotly
 lancedb
 sentence-transformers
 konlpy
+pydantic

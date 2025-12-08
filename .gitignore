@@ -79,6 +79,7 @@ __snapshots__/
 coverage.xml
 pytest_cache/
 htmlcov/
+test/
 
 # ================================
 # 8) Node (혹시 UI/Dashboard 포함 시)

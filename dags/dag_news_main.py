@@ -61,7 +61,7 @@ def parsing_webpage(url, retries=3, timeout=10, delay=2):
 
         except (requests.exceptions.RequestException, requests.exceptions.ConnectionError) as e:
             print(f"Attempt {attempt+1} failed for URL {url}: {e}")
-            sleep(delay)
+            time.sleep(delay)
     # 재시도 모두 실패 시 빈 dict 반환
     print(f"All {retries} attempts failed for URL {url}")
     return {
@@ -77,7 +77,7 @@ def get_news_data(keyword_list,client_id,client_secret):
     all_dfs =[]
 
     for keyword in keyword_list:
-        params = {"query": keyword, "sort": "sim"}
+        params = {"query": keyword, "sort": "sim","display":100}
         url = "https://openapi.naver.com/v1/search/news"
         headers = {
             "X-Naver-Client-Id": client_id,
@@ -121,7 +121,7 @@ def get_news_data(keyword_list,client_id,client_secret):
 with DAG(
     dag_id="dag_news_pipeline",
     start_date=datetime(2025,12,1),
-    schedule="@hourly",  ##매시간 실행
+    schedule="@daily",  ##매시간 실행
     catchup=False,
     tags = ['NEWS','ETL'],
     template_searchpath=["/opt/airflow/include/sql"],
