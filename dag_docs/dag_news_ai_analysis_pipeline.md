@@ -27,7 +27,7 @@ VectorDB_NAME ='/opt/airflow/db/vector'
 VectorDB_TB_NAME = 'tb_naver_news_ai_emb'
 ql = QueryLoader("ai_news_info.json")
 service = AiProcess(api_key=gemini_api_key, vector_db_path=VectorDB_NAME)
-
+```
 
 ETL 날짜: DAG 실행 날짜 기준
 
