@@ -1,24 +1,25 @@
-### 뉴스 AI 분석 파이프라인 (Airflow DAG)
+# 뉴스 AI 분석 파이프라인 (Airflow DAG)
 
 ## 개요
-dag_news_ai_analysis_pipeline은 뉴스 데이터를 수집 → 임베딩 → 유사도 분석 → AI 요약 및 감성 분석 → DB 저장까지 자동화하는 AI 기반 뉴스 분석 파이프라인입니다.
-Airflow DAG를 활용해 일일 단위 배치 처리가 가능하며, Gemini API와 로컬 VectorDB(LanceDB)를 활용합니다.
+`dag_news_ai_analysis_pipeline`은 **뉴스 데이터를 수집 → 임베딩 → 유사도 분석 → AI 요약 및 감성 분석 → DB 저장**까지 자동화하는 **AI 기반 뉴스 분석 파이프라인**입니다.  
+Airflow DAG를 활용해 **일일 단위 배치 처리**가 가능하며, Gemini API와 로컬 VectorDB(LanceDB)를 활용합니다.
 
-DAG 정보
+---
 
-DAG ID: dag_news_ai_analysis_pipeline
+## DAG 정보
 
-스케줄: @daily
+- **DAG ID**: `dag_news_ai_analysis_pipeline`
+- **스케줄**: `@daily`
+- **시작일**: `2025-12-08`
+- **타임존**: `Asia/Seoul`
+- **태그**: `NEWS`, `AI`
+- **템플릿 검색 경로**: `/opt/airflow/include/sql`
 
-시작일: 2025-12-08
+---
 
-타임존: Asia/Seoul
+## 주요 설정
 
-태그: NEWS, AI
-
-템플릿 검색 경로: /opt/airflow/include/sql
-
-주요 설정
+```python
 etl_date = "{{ (macros.datetime.strptime(ds, '%Y-%m-%d')).strftime('%Y-%m-%d') }}"
 gemini_api_key = Variable.get("gemini_api_key")
 DB_PATH = "/opt/airflow/db/project.db"
