@@ -123,7 +123,9 @@ with DAG(
     def news_ai_summary_process(**kwargs):
         ti = kwargs['ti']
         data = ti.xcom_pull(task_ids='news_similarity_filter_task')
-        df = pd.DataFrame(data).head(1)
+        df = pd.DataFrame(data)
+        print(f'[요약 뉴스건수] : {len(df)} ')
+        df = df.head(10) ### gemini 제한 조정
         df.columns = ['seq','title','pubDate','content','media']
 
         for i in range(len(df)):
