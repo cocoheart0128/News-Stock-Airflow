@@ -25,7 +25,7 @@ DB_PATH = "/opt/airflow/db/project.db"   # docker 환경 기준
 with DAG(
     dag_id="dag_yfinance_pipeline",
     start_date=datetime(2025,12,1),
-    schedule="0 9 * * *",  # 매일 09시
+    schedule="0 1 * * *",  # 매일 09시
     catchup=True,
     template_searchpath=["/opt/airflow/include/sql"],
     tags = ['Finance','ETL'],
