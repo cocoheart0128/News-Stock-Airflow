@@ -40,7 +40,7 @@ service = AiProcess(api_key=gemini_api_key,vector_db_path=VectorDB_NAME)
 with DAG(
     dag_id="dag_news_ai_analysis_pipeline",
     start_date=datetime(2025,12,8),
-    schedule="@daily",
+    schedule="0 9 * * *",
     catchup=False,
     tags = ['NEWS','AI'],
     template_searchpath=["/opt/airflow/include/sql"],

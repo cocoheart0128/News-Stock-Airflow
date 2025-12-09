@@ -120,8 +120,8 @@ def get_news_data(keyword_list,client_id,client_secret):
 
 with DAG(
     dag_id="dag_news_pipeline",
-    start_date=datetime(2025,12,1),
-    schedule="@daily",  ##매시간 실행
+    start_date=datetime(2025,12,8),
+    schedule="0 8 * * *",
     catchup=False,
     tags = ['NEWS','ETL'],
     template_searchpath=["/opt/airflow/include/sql"],
