@@ -16,8 +16,9 @@ Airflow DAG를 활용해 **일일 단위 배치 처리**가 가능하며, Gemini
 * **태그**: `NEWS`, `AI`
 * **템플릿 검색 경로**: `/opt/airflow/include/sql`
 
-<img width="1512" height="982" alt="스크린샷 2025-12-10 오후 2 39 07" src="https://github.com/user-attachments/assets/ff96d6bd-23b7-482f-9eef-c819e1061421" />
+---
 
+<img width="1512" height="982" alt="스크린샷 2025-12-10 오후 2 39 07" src="https://github.com/user-attachments/assets/ff96d6bd-23b7-482f-9eef-c819e1061421" />
 
 ---
 
