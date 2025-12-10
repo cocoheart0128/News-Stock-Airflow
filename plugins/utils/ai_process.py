@@ -334,7 +334,7 @@ class AiProcess:
         # 5️⃣ 모델 호출
         # ----------------------------
         response = self.client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-2.5-flash-lite",
             contents=prompt,
             config={
                 "response_mime_type": "application/json",
