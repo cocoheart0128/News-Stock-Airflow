@@ -1,11 +1,11 @@
 [
   {
-    "id": "unprocess_news_seq",
+    "id": "unprocess_news_seq_bk",
     "query": "select seq,title,content,pubDate,media from tb_naver_news where seq not in (select seq from tb_naver_news_ai_analysis);"
   },
   {
-    "id": "unprocess_news_seq_bk",
-    "query": "select seq,title,content,pubDate,media from tb_naver_news where pubDate like '? %'"
+    "id": "unprocess_news_seq",
+    "query": "select seq,title,content,pubDate,media from tb_naver_news where pubDate like "
   },
   {
   "id": "insert_ai_result",

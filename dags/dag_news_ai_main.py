@@ -54,7 +54,7 @@ with DAG(
     seq_info_task = SQLExecuteQueryOperator(
     task_id="seq_info_task",
     conn_id="sqlite_conn",
-    sql = ql.getQueryString("unprocess_news_seq") ,
+    sql = ql.getQueryString("unprocess_news_seq")+' "'+'{{ds}}'+'%"' ,
     do_xcom_push=True
 )
 
